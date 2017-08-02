@@ -1,0 +1,163 @@
+/**
+ * Framework7 1.2.0
+ * Full Featured Mobile HTML Framework For Building iOS & Android Apps
+ * 
+ * iOS Theme
+ *
+ * http://www.idangero.us/framework7
+ * 
+ * Copyright 2015, Vladimir Kharlampidi
+ * The iDangero.us
+ * http://www.idangero.us/
+ * 
+ * Licensed under MIT
+ * 
+ * Released on: July 18, 2015
+ */
+/*==========================
+Framework7 Color Themes
+==========================*/
+@import "color";
+//@gray, @orange, @blue, @red, @green,
+//gray, orange, blue, red, green,
+
+@colors : @color-primary, @color-secondary;
+@names  : primary, secondary;
+@length : length(@colors);
+
+.themes(@names; @colors; @index) when (iscolor(extract(@colors, @index))) and (@index > 0) {
+  .themes(@names; @colors; (@index - 1)); // decrement.
+
+  @name  : extract(@names, @index);
+  @color : extract(@colors, @index);
+
+  .alert-@{name} {
+    border-color: darken(@color, 10%);
+    color: darken(@color, 30%);
+    background-color: @color;
+  }
+
+  .color-@{name} {
+    color: @color !important;
+  }
+
+  .list-block .item-link.list-button.color-@{name},
+  .tabbar a.active.color-@{name},
+  a.color-@{name} {
+    color: @color;
+  }
+  .label-switch input[type="checkbox"]:checked + .checkbox.color-@{name},
+  .label-switch.color-@{name} input[type="checkbox"]:checked + .checkbox {
+    background-color: @color;
+  }
+  html:not(.watch-active-state) .color-@{name}.button:not(.button-fill):active,
+  html:not(.watch-active-state) .color-@{name}.buttons-row .button:active,
+  html:not(.watch-active-state) .theme-@{name} .button:not(.button-fill):active,
+  .color-@{name}.button:not(.button-fill).active-state,
+  .color-@{name}.buttons-row .button.active-state,
+  .theme-@{name} .button:not(.button-fill).active-state {
+    background-color: rgba(142, 142, 147, 0.15);
+  }
+  .color-@{name}.button:not([disabled]).active,
+  .color-@{name}.buttons-row .button.active,
+  .theme-@{name} .button:not([disabled]).active {
+    background-color: @color;
+    color: @white;
+  }
+  .color-@{name} .buttons-row .button:not(.active),
+  .theme-@{name} .buttons-row .button:not(.active) {
+    color: @color;
+  }
+  .color-@{name} .buttons-row .button,
+  .theme-@{name} .buttons-row .button{
+    border: @color 1px solid;
+  }
+  .theme-@{name} .button[disabled]{
+    background: @gray;
+    color: @white;
+  }
+  .color-@{name} i.icon,
+  .theme-@{name} i.icon,
+  i.icon.color-@{name},
+  i.icon.theme-@{name} {
+    color: @color;
+  }
+  .theme-@{name} a,
+  .theme-@{name} .item-link.list-button {
+    color: @color;
+  }
+  .theme-@{name} .tabbar a,
+  .tabbar.theme-@{name} a,
+  .theme-@{name} .tabbar a i,
+  .tabbar.theme-@{name} a i {
+    color: inherit;
+  }
+  .theme-@{name} .tabbar a.active,
+  .tabbar.theme-@{name} a.active,
+  .theme-@{name} .tabbar a.active i,
+  .tabbar.theme-@{name} a.active i {
+    color: @color;
+  }
+  .theme-@{name} .range-slider input[type="range"]::-webkit-slider-thumb:before,
+  .range-slider.theme-@{name} input[type="range"]::-webkit-slider-thumb:before {
+    background-color: @color;
+  }
+  .theme-@{name} label.label-checkbox input[type="checkbox"]:checked + .item-media i.icon-form-checkbox,
+  .theme-@{name} label.label-checkbox input[type="radio"]:checked + .item-media i.icon-form-checkbox {
+    background-color: @color;
+  }
+  .theme-@{name} label.label-radio input[type="checkbox"]:checked ~ .item-inner,
+  .theme-@{name} label.label-radio input[type="radio"]:checked ~ .item-inner {
+    background: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 10'><polygon fill='@{color}' points='11.6,0 4.4,7.2 1.4,4.2 0,5.6 4.4,10 4.4,10 4.4,10 13,1.4 '/></svg>") no-repeat 60% center;
+    background-size: 13px 10px;
+    -webkit-background-size: 13px 10px;
+  }
+  .swiper-pagination.color-@{name} .swiper-pagination-bullet-active,
+  .theme-@{name} .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: @color;
+  }
+  .swiper-button-next.color-@{name},
+  .swiper-container-rtl .swiper-button-prev.color-@{name},
+  .theme-@{name} .swiper-button-next,
+  .theme-@{name} .swiper-container-rtl .swiper-button-prev {
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'><path d='M27,22L27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z' fill='@{color}'/></svg>");
+  }
+  .swiper-button-prev.color-@{name},
+  .swiper-container-rtl .swiper-button-next.color-@{name},
+  .theme-@{name} .swiper-button-prev,
+  .theme-@{name} .swiper-container-rtl .swiper-button-next {
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'><path d='M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z' fill='@{color}'/></svg>");
+  }
+  .bg-@{name},
+  .button.button-fill.bg-@{name},
+  a.bg-@{name},
+  .list-block .swipeout-actions-left a.bg-@{name},
+  .list-block .swipeout-actions-right a.bg-@{name} {
+    background-color: @color;
+  }
+  .border-@{name} {
+    border-color: @color;
+  }
+  .list-block .border-@{name}.item-inner:after,
+  .list-block ul.border-@{name}:after,
+  .border-@{name}:after,
+  .list-block .border-@{name}.item-inner:before,
+  .list-block ul.border-@{name}:before,
+  .border-@{name}:before {
+    background-color: @color;
+  }
+}
+
+.themes(@names; @colors; @length);
+
+.list-block input[type="text"] .error,
+.list-block input[type="password"] .error,
+.list-block input[type="email"] .error,
+.list-block input[type="tel"] .error,
+.list-block input[type="url"] .error,
+.list-block input[type="date"] .error,
+.list-block input[type="datetime-local"] .error,
+.list-block input[type="number"] .error,
+.list-block textarea .error{
+  color: @red;
+}
